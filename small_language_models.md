@@ -2,6 +2,39 @@
 
 ![abstract](images/slam_framework.png)
 
+_Abstract_:
+
+Small Models, Huge Impact: Why India is Betting Big on "Bite-Sized" AI
+
+
+While the world is obsessed with the "AI arms race" to build the biggest models possible, India is quietly proving that smaller is often better.
+
+I’ve been thinking about the strategic shift toward Small Language Models (SLMs)—think of them as "Pocket Field Guides" rather than "Massive Encyclopedias." 📘✨
+
+Here’s why this is a game-changer for India:
+
+
+* 95% of the Profit: The real value isn't in building one giant brain; it’s in building millions of specialized tools that actually solve problems.
+
+
+
+* No Internet? No Problem: These models can run on a simple tablet in a rural clinic or a remote solar farm without needing a massive cloud connection.
+
+
+
+* Sovereign Intelligence: By using models like those from Sarvam.ai, we keep our data—and our solutions—local.
+
+Where will we see the impact? 🏥 Healthcare: Helping village health workers triage patients in local dialects. ⚡ Green Energy: Managing smart grids in remote "Solar Villages." 🚀 Space: Processing satellite data right there in orbit. 🛡️ Cyber Security: Detecting threats instantly at the source.
+
+
+
+The future of AI in India isn't just about being "smart"—it's about being practical, affordable, and inclusive. 🇮🇳
+
+
+#AI #IndiaTech #SarvamAI #Innovation #DigitalIndia #FutureOfWork
+
+
+
 India’s strategic pivot toward **Small Language Models (SLMs)** like those from **Sarvam.ai** marks a significant shift from "all-purpose" AI to "purpose-built" sovereign intelligence. In a country with the scale of India, SLMs are often more practical than Large Language Models (LLMs) because they are cost-effective, energy-efficient, and can run on-device (at the "edge") without needing constant high-speed internet.
 
 One can think of the difference between Large Language Models (LLMs) and Small Language Models (SLMs) as the difference between a massive, multi-volume encyclopedia and a pocket-sized field guide for a specific job. LLMs (like ChatGPT) are generalists—they are incredibly smart but require massive supercomputers, cost millions of dollars to run, and need a constant high-speed internet connection. In contrast, SLMs (like those from Sarvam.ai) are specialists—they are much smaller, faster, and designed to do one or two specific tasks exceptionally well, such as diagnosing a crop disease or processing a loan in a local language. 
