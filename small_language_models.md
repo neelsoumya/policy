@@ -1,5 +1,6 @@
 *A Strategic Framework for Domain-Specific Small Language Models (SLMs) in India*
 
+![abstract](images/slam_framework.png)
 
 India’s strategic pivot toward **Small Language Models (SLMs)** like those from **Sarvam.ai** marks a significant shift from "all-purpose" AI to "purpose-built" sovereign intelligence. In a country with the scale of India, SLMs are often more practical than Large Language Models (LLMs) because they are cost-effective, energy-efficient, and can run on-device (at the "edge") without needing constant high-speed internet.
 
