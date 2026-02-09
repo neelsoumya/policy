@@ -3,6 +3,10 @@
 
 India’s strategic pivot toward **Small Language Models (SLMs)** like those from **Sarvam.ai** marks a significant shift from "all-purpose" AI to "purpose-built" sovereign intelligence. In a country with the scale of India, SLMs are often more practical than Large Language Models (LLMs) because they are cost-effective, energy-efficient, and can run on-device (at the "edge") without needing constant high-speed internet.
 
+One can think of the difference between Large Language Models (LLMs) and Small Language Models (SLMs) as the difference between a massive, multi-volume encyclopedia and a pocket-sized field guide for a specific job. LLMs (like ChatGPT) are generalists—they are incredibly smart but require massive supercomputers, cost millions of dollars to run, and need a constant high-speed internet connection. In contrast, SLMs (like those from Sarvam.ai) are specialists—they are much smaller, faster, and designed to do one or two specific tasks exceptionally well, such as diagnosing a crop disease or processing a loan in a local language. 
+
+For a country like India, the "95% of the profit" doesn't lie in building the world's largest general-purpose model, which is an expensive "arms race" for tech giants. Instead, the real value lies in the application layer: building millions of affordable, energy-efficient SLMs that can run directly on a farmer's smartphone or a village clinic's tablet without needing a cloud. By focusing on these "nimble" models, India can solve massive social problems at a fraction of the cost, turning AI from a luxury high-tech toy into a practical, profitable tool for the everyday citizen.
+
 As of early 2026, Sarvam AI has released models like **Sarvam-1 (2B)** and **Sarvam-Small**, specifically optimized for Indian contexts. Here is an outlined approach for how India can deploy these domain-specific models across your requested sectors.
 
 ---
