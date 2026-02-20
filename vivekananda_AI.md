@@ -4,6 +4,8 @@
 
 ---
 
+![Vivekananda](images/vivekananda.png)
+
 ## Abstract
 
 As India emerges as a global epicenter for Artificial Intelligence, the vacuum between rapid technological acceleration and ethical governance grows. This manuscript proposes a uniquely Indian framework for Responsible AI, anchored in the "Practical Vedanta" of Swami Vivekananda. Rather than viewing technology through a lens of mere compliance, this work synthesizes core Vedantic tenets, specifically *Seva* (service to the marginalized), *Atman* (the preservation of human agency), and Universalism (the mitigation of algorithmic bias), to advocate for a "conscience-driven" approach to innovation. The manuscript argues that India’s AI roadmap must move beyond profit-maximization to focus on "Man-making" education and the upliftment of the *Daridra Narayana* (the underserved). By integrating these timeless spiritual principles with modern data science, India can offer the world a "Third Way" of AI governance: one that balances fearless innovation with an unwavering commitment to human dignity and social harmony.
