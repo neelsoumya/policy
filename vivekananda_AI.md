@@ -42,4 +42,3 @@ He often said, "The transition from sorrow to joy is through fearlessness." Resp
 
 ---
 
-**Would you like me to continue converting the rest of the manuscript structure we discussed into this formal format?**
