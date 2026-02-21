@@ -4,7 +4,8 @@ _Soumya Banerjee_
 
 This policy brief outlines the strategic framework of India’s entry into the Pax Silica Consortium (formally the Pax Silica Declaration), signed on February 20, 2026, during the India AI Impact Summit in New Delhi.
 
- 
+
+![image](images/pax_silica.png) 
 
 1. Short Policy: The "Silicon-First" Strategy
 Objective: To secure India’s technological future by integrating with the global "trusted" supply chain while accelerating domestic AI self-reliance.
