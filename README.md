@@ -11,3 +11,5 @@ policy briefs
 * [Vivekanda and AI](vivekananda_AI.md)
 
 * [What tech should India focus on?](tech_india.md)
+
+* [Pax Silica and Indian AI](pax_silica_India.md)
