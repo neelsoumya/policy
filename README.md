@@ -14,4 +14,4 @@ policy briefs
 
 * [Pax Silica and Indian AI](pax_silica_India.md)
 
-* [Superintelligence harm and benefits](agi_harms_beenfits.md)
+* [Superintelligence harm and benefits](agi_harms_benefits.md)
