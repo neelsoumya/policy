@@ -1,3 +1,7 @@
+'''
+This code generates a humorous xkcd-style plot illustrating the concept of "EXPO-HARM" in AI development, where harmful AI technologies grow exponentially while beneficial AI technologies grow more slowly due to institutional constraints. The plot emphasizes the "velocity gap" between the two trajectories, highlighting the potential risks of unregulated AI growth compared to the slower pace of beneficial advancements.
+'''
+
 import matplotlib.pyplot as plt
 import numpy as np
 
