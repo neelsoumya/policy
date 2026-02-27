@@ -98,3 +98,5 @@ interact(
 * Nielsen, M. (2023). *Which future? (And what can we do about it?)*. [https://michaelnotebook.com/whichfuture/index.html](https://michaelnotebook.com/whichfuture/index.html)
 * Bostrom, N. (2014). *Superintelligence: Paths, Dangers, Strategies*. Oxford University Press.
 * Ord, T. (2020). *The Precipice: Existential Risk and the Future of Humanity*. Hachette Books.
+
+![image](code/ai_xkcd_plot.png)
