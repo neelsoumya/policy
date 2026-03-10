@@ -18,6 +18,6 @@ Produces plot `ai_xkcd_plot.png`
 
 Interactive plot with sliders using `ipywidgets`
 
-* `r_code_shiny_rmarkdown.R` 
+* `r_code_shiny_rmarkdown.R` and `r_code_shiny_rmarkdown.Rmd`
 
 R markdown and shiny code for AGI policy simulation
