@@ -90,7 +90,11 @@ interact(
 ```
 
 
+## R code and shiny notebooks
 
+- [Shiny](https://github.com/neelsoumya/policy/blob/main/code/r_code_shiny_rmarkdown.Rmd)
+
+- [Rmarkdown](https://github.com/neelsoumya/policy/blob/main/code/r_code_shiny_rmarkdown.R)
 ---
 
 **References**
