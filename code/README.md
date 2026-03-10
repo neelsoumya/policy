@@ -21,3 +21,7 @@ Interactive plot with sliders using `ipywidgets`
 * `r_code_shiny_rmarkdown.R` and `r_code_shiny_rmarkdown.Rmd`
 
 R markdown and shiny code for AGI policy simulation
+
+* `agi_policy_harm_benefits/app.R`
+
+Shiny app for AGI harm and benefits

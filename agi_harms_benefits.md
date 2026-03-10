@@ -38,6 +38,10 @@ The "speculative harms" aren't just scary stories; they are the natural default 
 
 The disparity between the growth of AI benefits and harms is not a technical flaw, but a structural one. Benefits are constrained by the necessity of human agreement, while harms are liberated by the speed of automation. To ensure a flourishng future, we must focus less on the "intelligence" of the AI and more on the "latency" of our institutions. If we cannot speed up our ability to agree and adapt, we risk being overwhelmed by the very tools meant to liberate us.
 
+### Interactive webpage
+
+- An interactive webpage in R Shiny that allows you to play with this simulation is [here](https://sb2333.shinyapps.io/agi_policy_harm_benefits/)
+
 
 ### Interactive notebook
 
@@ -91,6 +95,8 @@ interact(
 
 
 ## R code and shiny notebooks
+
+- An interactive webpage that allows you to play with this simulation is [here](https://sb2333.shinyapps.io/agi_policy_harm_benefits/)
 
 - [Shiny](https://github.com/neelsoumya/policy/blob/main/code/r_code_shiny_rmarkdown.Rmd)
 
