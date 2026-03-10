@@ -1,0 +1,105 @@
+# AI Velocity Gap Simulator - Shiny app (single-file app.R)
+# Run with: install.packages(c('shiny','ggplot2','plotly','pracma'))
+# Then run: shiny::runApp('path/to/this/file') or place this file as app.R in a directory and run it.
+
+library(shiny)
+library(ggplot2)
+library(plotly)
+library(pracma)   # for trapz
+
+# Helper to compute curves and risk
+compute_curves <- function(harm_growth, benefit_ceiling, inst_speed, policy_lag) {
+  time <- seq(0, 25, length.out = 250)
+  y_harm <- 0.5 * exp(harm_growth * time)
+  midpoint <- 10 + policy_lag
+  y_benefit <- benefit_ceiling / (1 + exp(-inst_speed * (time - midpoint)))
+  gap_delta <- pmax(0, y_harm - y_benefit)
+  risk_score <- pracma::trapz(time, gap_delta)
+  list(time = time, y_harm = y_harm, y_benefit = y_benefit, gap_delta = gap_delta, risk_score = risk_score)
+}
+
+ui <- fluidPage(
+  titlePanel("AI Velocity Gap Simulator"),
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput("harm_growth", "Harm growth rate:", min = 0.1, max = 0.4, value = 0.25, step = 0.01),
+      sliderInput("benefit_ceiling", "Institutional capacity (benefit ceiling):", min = 10, max = 100, value = 50, step = 5),
+      sliderInput("inst_speed", "Institutional / consensus speed:", min = 0.1, max = 1.0, value = 0.4, step = 0.05),
+      sliderInput("policy_lag", "Policy lag (years):", min = -5, max = 10, value = 0, step = 1),
+      radioButtons("renderer", "Plot renderer:", choices = c("ggplot2" = "ggplot", "plotly" = "plotly"), selected = "plotly"),
+      width = 3
+    ),
+    mainPanel(
+      h4(textOutput("title_text")),
+      conditionalPanel(
+        condition = "input.renderer == 'ggplot'",
+        plotOutput("gapPlot", height = "600px")
+      ),
+      conditionalPanel(
+        condition = "input.renderer == 'plotly'",
+        plotlyOutput("gapPlotly", height = "650px")
+      ),
+      verbatimTextOutput("risk_text")
+    )
+  )
+)
+
+server <- function(input, output, session) {
+  curves <- reactive({
+    compute_curves(input$harm_growth, input$benefit_ceiling, input$inst_speed, input$policy_lag)
+  })
+
+  output$title_text <- renderText({
+    cs <- curves()
+    sprintf("Cumulative Risk Score: %.2f", cs$risk_score)
+  })
+
+  output$risk_text <- renderText({
+    cs <- curves()
+    sprintf("Risk area (numerical integration of positive harm - benefit): %.3f units", cs$risk_score)
+  })
+
+  output$gapPlot <- renderPlot({
+    cs <- curves()
+    df <- data.frame(
+      time = cs$time,
+      harm = cs$y_harm,
+      benefit = cs$y_benefit,
+      gap = cs$gap_delta
+    )
+
+    # Build ggplot with ribbon for the region where harm > benefit
+    ggplot(df, aes(x = time)) +
+      geom_line(aes(y = harm, color = "Harmful AI Potential"), size = 1.2) +
+      geom_line(aes(y = benefit, color = "Realized AI Benefits"), size = 1.2) +
+      geom_ribbon(aes(ymin = pmin(harm, benefit), ymax = harm),
+                  data = subset(df, harm > benefit), alpha = 0.12, fill = "red") +
+      scale_color_manual(values = c("Harmful AI Potential" = "#ef4444", "Realized AI Benefits" = "#3b82f6")) +
+      labs(x = "Years from AGI Emergence", y = "Impact Magnitude", color = "") +
+      ylim(0, min(max(df$harm) * 1.1, 500)) +
+      theme_minimal(base_size = 14) +
+      theme(legend.position = "top") +
+      ggtitle(sprintf("AI Velocity Gap | Cumulative Risk: %.2f", cs$risk_score))
+  })
+
+  output$gapPlotly <- renderPlotly({
+    cs <- curves()
+    df <- data.frame(time = cs$time, harm = cs$y_harm, benefit = cs$y_benefit)
+
+    # Build a Plotly figure: harm line, benefit line, and an area where harm > benefit
+    gap_ymin <- ifelse(df$harm > df$benefit, df$benefit, NA)
+    gap_ymax <- ifelse(df$harm > df$benefit, df$harm, NA)
+
+    p <- plot_ly(x = ~df$time) %>%
+      add_trace(y = ~df$harm, type = 'scatter', mode = 'lines', name = 'Harmful AI Potential', line = list(color = '#ef4444', width = 3)) %>%
+      add_trace(y = ~df$benefit, type = 'scatter', mode = 'lines', name = 'Realized AI Benefits', line = list(color = '#3b82f6', width = 3)) %>%
+      add_ribbons(ymin = gap_ymin, ymax = gap_ymax, name = 'Velocity Gap', fillcolor = 'rgba(239,68,68,0.12)', hoverinfo = 'none') %>%
+      layout(title = list(text = paste0('<b>AI Velocity Gap Simulator</b><br>Cumulative Risk Score: ', sprintf('%.2f', cs$risk_score))),
+             xaxis = list(title = 'Years from AGI Emergence'),
+             yaxis = list(title = 'Impact Magnitude', range = c(0, min(max(df$harm) * 1.1, 500))))
+
+    p
+  })
+}
+
+shinyApp(ui, server)
