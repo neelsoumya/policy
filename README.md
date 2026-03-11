@@ -17,3 +17,5 @@ policy briefs
 * [Superintelligence harm and benefits](agi_harms_benefits.md)
 
 * [xkcd and AI](xkcd_AI_regulation.md)
+
+* [Naval aircrafts, LCA and Rafale](naval_aviation_India.md)
