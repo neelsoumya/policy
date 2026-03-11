@@ -1,6 +1,6 @@
 # Why is it so difficult to convert an Air Force aircraft to a naval carrier-borne aircraft?
 
-
+![image](images/rafale_tejas.png)
 
 It is a classic "measure twice, cut once" versus "fixing it in post" scenario. One of the most grueling challenges in aerospace engineering is **the carrier-born conversion.**
 
@@ -58,3 +58,5 @@ The weight of the landing gear alone was a dealbreaker. It's a **vicious cycle**
 ## The Path Forward
 
 India has learned from this. Instead of forcing the Tejas to do something it wasn't born for, they are now developing the **TEDBF (Twin Engine Deck Based Fighter)**. Like the Rafale, this is being designed from the ground up specifically for the carrier deck.
+
+India has learnt crucial lessons that will help indigenous naval aviation. Commendably, in the interim the Indian Air Force and the Navy have gone for the Rafale. 
