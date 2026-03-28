@@ -5,6 +5,8 @@ For years, the debate in aerial warfare was Manned vs. Unmanned. But as the Indi
 
 The recent momentum behind the **Ghatak** (formerly Aura) stealth UCAV program is more than just a technological milestone; it is the "missing link" that will turn the IAF’s existing fleet of **Dassault Rafales** and **Sukhoi Su-30MKIs** into a much more lethal, "un-interceptable" force.
 
+![image](images/ghatak.png)
+
 ### 1. The "Door Kicker": Ghatak and the Rafale
 The Rafale is already a 4.5-generation masterpiece, equipped with the SPECTRA electronic warfare suite and the Meteor long-range missile. However, even the best manned aircraft faces risks in highly contested "Anti-Access/Area Denial" (A2/AD) zones.
 
