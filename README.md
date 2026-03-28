@@ -19,3 +19,5 @@ policy briefs
 * [xkcd and AI](xkcd_AI_regulation.md)
 
 * [Naval aircrafts, LCA and Rafale](naval_aviation_India.md)
+
+* [How the Ghatak UCAV Will Redefine the IAF’s Combat Edge](ghatak.md)
