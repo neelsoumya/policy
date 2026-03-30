@@ -2,6 +2,8 @@
 
 This policy brief outlines the critical intersection of AI safety and the rapidly evolving space domain as of 2026. While Earth-based AI governance is maturing, the extension of these systems into Low Earth Orbit (LEO), cislunar space (the region between Earth and the Moon), and onto asteroids presents a "double dual-use" risk: the convergence of two inherently dangerous and transformative technologies.
 
+![image](images/ai_space.png)
+
 ---
 
 ## Policy Brief: Securing the Final Frontier
