@@ -5,3 +5,14 @@ matplotlib
 seaborn
 pandas
 plotly
+
+gradio>=4.0.0
+# faiss-cpu>=1.8.0
+chromadb>=0.5.0
+numpy>=1.26.0
+sentence-transformers>=3.0.0
+transformers>=4.45.0
+torch
+accelerate>=0.33.0
+huggingface-hub>=0.24.0
+scipy>=1.13.0
