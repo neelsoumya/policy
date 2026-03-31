@@ -25,3 +25,7 @@ R markdown and shiny code for AGI policy simulation
 * `agi_policy_harm_benefits/app.R`
 
 Shiny app for AGI harm and benefits
+
+* `chatbot_space_AI.py`
+
+Python AI chatbot for AI space policy
