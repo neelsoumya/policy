@@ -52,5 +52,12 @@ EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2" # for generating text emb
 GEN_MODEL = os.environ.get("GEN_MODEL", "TinyLlama/TinyLlama-1.1B-Chat-v1.0")
 MAX_TOKENS = int(os.environ.get("MAX_TOKENS", 220))
 TOP_K = int(os.environ.get("TOP_K", "4"))
-CHROMA_DB = os.environ.get("CHROMA_DB", "output/chroma_db")
+CHROMA_DIR = os.environ.get("CHROMA_DIR", "output/chroma_db")
 COLLECTION_NAME = "space_commons"
+
+#############################
+# Initialize mebedding model
+#############################
+
+embedder = SentenceTransformer(EMBED_MODEL)
+client = chromadb.PersistentClient(path=CHROMA_DIR)
