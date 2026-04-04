@@ -61,3 +61,26 @@ COLLECTION_NAME = "space_commons"
 
 embedder = SentenceTransformer(EMBED_MODEL)
 client = chromadb.PersistentClient(path=CHROMA_DIR)
+collection = client.get_or_create_collection(name=COLLECTION_NAME)
+
+# Add documents to ChromaDB collection if empty
+if collection.count() == 0:
+    print("Addng documents to ChromaDB collection\n")
+
+    ids = [f"doc_{i}" for i in range(len(DOCS))]
+
+    # generate embeddings for documents
+    embeddings = embedder.encode(DOCS, 
+                                 normalize_embeddings=True,
+                                 convert_to_numpy=False)
+    
+    embeddings = embeddings.cpu().tolist()
+
+    # add documents to collection
+    collection.add(
+        ids = ids, 
+        documents = DOCS,
+        embeddings = embeddings
+    )
+
+
