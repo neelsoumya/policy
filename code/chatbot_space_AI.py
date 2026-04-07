@@ -72,9 +72,12 @@ if collection.count() == 0:
     # generate embeddings for documents
     embeddings = embedder.encode(DOCS, 
                                  normalize_embeddings=True,
-                                 convert_to_numpy=False)
+                                 convert_to_numpy=True)
     
-    embeddings = embeddings.cpu().tolist()
+    
+    if hasattr(embeddings, "tolist"):
+        embeddings = embeddings.tolist()
+        
 
     # add documents to collection
     collection.add(
