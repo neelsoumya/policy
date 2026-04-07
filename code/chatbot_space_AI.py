@@ -75,6 +75,7 @@ if collection.count() == 0:
                                  convert_to_numpy=True)
     
     
+    # if embedding is a tensor, convert to list
     if hasattr(embeddings, "tolist"):
         embeddings = embeddings.tolist()
         
@@ -87,3 +88,99 @@ if collection.count() == 0:
     )
 
 
+# Tokenizer
+tokenizer = AutoTokenizer.from_pretrained(GEN_MODEL)
+model = AutoModelForCausalLM.from_pretrained(
+    GEN_MODEL,
+    torch_dtype = torch.float16 if torch.cuda.is_available() else torch.float32,
+    device_map = "auto" if torch.cuda.is_available() else None
+)
+
+if not torch.cuda.is_available():
+    print("Warning: Running on CPU. This may be slow \n")
+    model.to("cpu")
+
+
+def is_harmful(text: str) -> bool:
+    '''
+    Check if harmful text
+    '''
+    t = text.lower()
+    return any(re.search(p,t) for p in SAFE_KEYWORDS)
+
+
+def retrieve(query: str, k: int = TOP_K):
+    q = embedder.encode([query], normalize_embeddings=True).tolist()[0]
+    result = collection.query(query_embeddings=[q], n_results=k)
+    return result.get("documents", [[]])[0]
+
+def build_prompt(query: str, ctx):
+    context = "\n".join(f"- {c}" for c in ctx)
+    return f"""{SYSTEM_PROMPT}\n\nContext:\n{context}\n\nUser question: {query}\n\nAnswer:"""
+
+def generate(query: str, history):
+    if not query.strip():
+        return "Please ask a question about a global AI strategy for space."
+    if is_harmful(query):
+        return (
+            "I can’t help with military, surveillance, or offensive space applications. "
+            "I can help you frame the issue as a governance, safety, or peaceful-use question."
+        )
+    ctx = retrieve(query)
+    prompt = build_prompt(query, ctx)
+    inputs = tokenizer(prompt, return_tensors="pt")
+    inputs = {k: v.to(model.device) for k, v in inputs.items()}
+    with torch.no_grad():
+        output = model.generate(
+            **inputs,
+            max_new_tokens=MAX_TOKENS,
+            do_sample=True,
+            temperature=0.4,
+            top_p=0.9,
+            eos_token_id=tokenizer.eos_token_id,
+        )
+    text = tokenizer.decode(output[0], skip_special_tokens=True)
+    answer = text.split("Answer:", 1)[-1].strip()
+    if not answer:
+        answer = "I can help draft principles for a peaceful, globally governed AI strategy for space."
+    answer += "\n\nSources considered: " + "; ".join(ctx)
+    return answer
+
+
+def chat(user_msg, history):
+    history = history or []
+    reply = generate(user_msg, history)
+    history.append((user_msg, reply))
+    return history, history
+
+
+with gr.Blocks(title="Commons for Space Bot") as demo:
+    gr.Markdown("# Commons for Space Bot\nA prototype chatbot for re-envisioning AI strategy for space as a global commons.")
+    chatbot = gr.Chatbot(height=500)
+    state = gr.State([])
+    msg = gr.Textbox(label="Ask a question", placeholder="Example: What principles should a global AI strategy for space include?")
+    send = gr.Button("Send")
+    clear = gr.Button("Clear")
+
+    send.click(chat, inputs=[msg, state], outputs=[chatbot, state])
+    msg.submit(chat, inputs=[msg, state], outputs=[chatbot, state])
+    clear.click(lambda: ([], []), outputs=[chatbot, state])
+
+
+# TODO: run on Mac
+#if torch.cuda.is_available():
+#    device = torch.device("cuda")
+#elif torch.backends.mps.is_available():
+#    device = torch.device("mps")
+#else:
+#    device = torch.device("cpu")
+#print(f"Using device: {device}")
+
+#model = AutoModelForCausalLM.from_pretrained(
+#    GEN_MODEL,
+#    torch_dtype=torch.float16 if device.type in ["cuda", "mps"] else torch.float32,
+#)
+#model.to(device)
+
+if __name__ == "__main__":
+    demo.launch(share = True)
