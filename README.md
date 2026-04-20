@@ -23,3 +23,5 @@ policy briefs
 * [How the Ghatak UCAV Will Redefine the IAF’s Combat Edge](ghatak.md)
 
 * [AI safety for space](AI_policy_space.md)
+
+* [AI for India: risks and benefits](India_AI.md)
